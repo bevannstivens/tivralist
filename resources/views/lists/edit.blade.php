@@ -1,5 +1,5 @@
 <x-layouts.main>
-  <x-slot:title>Edit List</x-slot:title>
+  <x-slot:title>Edit {{ $list->title }}</x-slot:title>
 
   <div class="w-full h-full flex justify-center items-center">
     <div class="bg-slate-300 w-11/12 py-3 px-6 rounded-xl shadow-md md:w-2/3">

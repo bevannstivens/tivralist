@@ -3,10 +3,13 @@
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\TaskController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    return Auth::check()
+        ? redirect()->route('lists.index')
+        : redirect()->route('login');
 });
 
 Route::get('/login', [AuthenticationController::class, 'showLogin'])->name('login')->middleware('guest');
