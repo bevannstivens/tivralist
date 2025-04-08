@@ -52,7 +52,8 @@ class ListController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $list = ListModel::findOrFail($id);
+        return view('lists.show', compact('list'));
     }
 
     /**

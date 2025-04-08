@@ -5,7 +5,9 @@
       {{-- ! S: Logo --}}
       <div class="flex items-center">
         <div class="shrink-0">
-          <img src="{{ asset('assets/images/logo.png') }}" alt="TivraList Logo" class="size-12">
+          <a href="{{ route('lists.index') }}">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="TivraList Logo" class="size-12">
+          </a>
         </div>
       </div>
       {{-- ! E: Logo --}}
