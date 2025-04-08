@@ -13,8 +13,13 @@
       {{-- ! S: Desktop Version --}}
       <div class="hidden md:block">
         <div class="ml-10 space-x-4 flex items-baseline">
-          <p class="text-gray-300 py-2 text-sm font-medium rounded-md">Hello, bevannstivens!</p>
-          <a href="#" aria-current="page" class="bg-gray-700 text-white py-2 px-3 text-sm font-medium rounded-md duration-300 hover:bg-gray-900">Logout</a>
+          @auth
+            <p class="text-gray-300 py-2 text-sm font-medium rounded-md">Hello, {{ auth()->user()->username }}!</p>
+            <form action="{{ route('logout') }}" method="post">
+              @csrf
+              <button type="submit" class="bg-gray-900 text-white px-3 py-1 text-sm font-medium rounded-md cursor-pointer duration-300 hover:bg-gray-950">Logout</button>
+            </form>
+          @endauth
         </div>
       </div>
       {{-- ! E: Desktop Version --}}
@@ -22,8 +27,13 @@
       {{-- ! S: Mobile Version --}}
       <div class="-mr-2 flex md:hidden">
         <div class="ml-10 space-x-4 flex items-baseline">
-          <p class="text-gray-300 py-2 text-sm font-medium rounded-md">bevannstivens</p>
-          <a href="#" aria-current="page" class="bg-gray-700 text-white py-2 px-3 text-sm font-medium rounded-md duration-300 hover:bg-gray-900">Logout</a>
+          @auth
+            <p class="text-gray-300 py-2 text-sm font-medium rounded-md">{{ auth()->user()->username }}</p>
+            <form action="{{ route('logout') }}" method="post">
+              @csrf
+              <button type="submit" class="bg-gray-900 text-white px-3 py-1 text-sm font-medium rounded-md cursor-pointer duration-300 hover:bg-gray-950">Logout</button>
+            </form>
+          @endauth
         </div>
       </div>
       {{-- ! E: Mobile Version --}}

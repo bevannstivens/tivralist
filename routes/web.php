@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\ListController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,3 +13,7 @@ Route::post('/login', [AuthenticationController::class, 'login'])->name('login.a
 Route::get('/register', [AuthenticationController::class, 'showRegister'])->name('register')->middleware('guest');
 Route::post('/register', [AuthenticationController::class, 'register'])->name('register.attempt');
 Route::post('/logout', [AuthenticationController::class, 'logout'])->name('logout')->middleware('auth');
+
+Route::middleware(['auth'])->group(function() {
+    Route::resource('lists', ListController::class);
+});
