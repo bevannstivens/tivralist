@@ -46,6 +46,12 @@ class TaskController extends Controller
             'status' => $task->status === 'done' ? 'in_progress' : 'done'
         ]);
 
+        $allDone = $list->tasks()->where('status', '!=', 'done')->count() === 0;
+
+        $list->update([
+            'status' => $allDone ? 'done' : 'in_progress'
+        ]);
+
         return back();
     }
 }

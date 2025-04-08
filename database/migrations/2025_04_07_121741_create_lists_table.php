@@ -19,7 +19,6 @@ return new class extends Migration
             $table->enum('priority', ['low', 'medium', 'high'])->default('low');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

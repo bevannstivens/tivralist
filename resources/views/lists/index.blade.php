@@ -59,9 +59,9 @@
       </div>
     @endforeach
   @else
-  <div class="w-full h-full flex justify-center items-center">
-    <p class="text-gray-600 text-center italic">No lists yet. Let's create one!</p>
-  </div>
+    <div class="w-full h-full flex justify-center items-center">
+      <p class="text-gray-600 text-center italic">No lists yet. Let's create one!</p>
+    </div>
   @endif
   {{-- ! E: All User List Data --}}
 
